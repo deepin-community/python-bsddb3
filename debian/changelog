@@ -1,0 +1,257 @@
+python-bsddb3 (6.2.9-2) unstable; urgency=medium
+
+  * QA upload.
+  * Stop building the python3-bsddb3-dbg package. Closes: #994347.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 15 Sep 2021 13:29:08 +0200
+
+python-bsddb3 (6.2.9-1) unstable; urgency=medium
+
+  * QA upload, orphaning the package. See #977266.
+  * New upstream version.
+  * Drop the html docs, build support is dropped upstream.
+  * bsddb3 is replaced by berkeleydb (https://pypi.org/project/berkeleydb/).
+
+ -- Matthias Klose <doko@debian.org>  Sun, 13 Dec 2020 12:29:05 +0100
+
+python-bsddb3 (6.2.8-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Bump standards and debhelper versions.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 26 Nov 2020 17:55:19 +0100
+
+python-bsddb3 (6.2.7-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Drop python2 support; Closes: #937622
+
+ -- Sandro Tosi <morph@debian.org>  Mon, 16 Mar 2020 15:06:57 -0400
+
+python-bsddb3 (6.2.7-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 18 Feb 2020 17:12:56 +0100
+
+python-bsddb3 (6.2.6-4) unstable; urgency=medium
+
+  * python-bsddb3-dbg: Depend on python2-dbg instead of python-dbg.
+  * python-bsddb3-doc: Suggest the Python3 module.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 10 Jan 2020 15:01:56 +0100
+
+python-bsddb3 (6.2.6-3) unstable; urgency=medium
+
+  * Bump standards version.
+  * python3-bsddb3: Fix location of include directory. Closes: #920028.
+
+ -- Matthias Klose <doko@debian.org>  Mon, 21 Jan 2019 23:17:17 +0100
+
+python-bsddb3 (6.2.6-2) unstable; urgency=medium
+
+  * New upstream release.
+  * Fix building the documentation, now using dh_sphinxdoc.
+  * python3-bsddb3-dbg: Fix dangling symlink to the python include
+    directory. Closes: #858483.
+  * Fix some lintian warnings.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 21 Jul 2018 13:52:39 +0200
+
+python-bsddb3 (6.1.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 12 Aug 2014 00:19:52 +0200
+
+python-bsddb3 (6.0.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 19 Feb 2014 14:37:43 +0100
+
+python-bsddb3 (5.3.0-4) unstable; urgency=low
+
+  * Build using libdb5.1-dev on s390, no db5.3 packages yet available.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 10 May 2013 00:42:08 +0200
+
+python-bsddb3 (5.3.0-3) unstable; urgency=low
+
+  * Drop explicit build dependency on python3.2-dev.
+  * Build-depend on libdb5.3-dev for jessie.
+
+ -- Matthias Klose <doko@debian.org>  Mon, 06 May 2013 21:21:45 +0200
+
+python-bsddb3 (5.3.0-2) unstable; urgency=low
+
+  * Build-depend on python3.2-dev (>= 3.2.3-7). Closes: #700996.
+  * Build-depend on libdb5.1-dev.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 20 Feb 2013 16:16:16 +0100
+
+python-bsddb3 (5.3.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 17 Apr 2012 15:10:52 +0200
+
+python-bsddb3 (5.2.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fix build failure with multiarch locations. Closes: #634604.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 18 Aug 2011 11:35:50 +0200
+
+python-bsddb3 (5.1.2-1) unstable; urgency=low
+
+  * New upstream version, supporting bsddb 5.1. Closes: #621458.
+  * Don't compress object.inv. Closes: #608767.
+  * Don't use XS-Python-Version for Python3. Closes: #614850.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 22 Apr 2011 11:35:39 +0200
+
+python-bsddb3 (4.8.3-3) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 23 Sep 2010 20:04:39 +0200
+
+python-bsddb3 (4.8.3-2) experimental; urgency=low
+
+  * Build using dh_python2/dh_python3 instead of dh_pycentral.
+  * Fix typo in package description. Closes: #586898.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 12 Sep 2010 20:17:08 +0200
+
+python-bsddb3 (4.8.3-1) unstable; urgency=low
+
+  * New upstream version.
+  * Keep the documentation from the 4.8.0 release.
+  * Build a python3-bsddb3 package.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 14 Mar 2010 16:00:58 +0100
+
+python-bsddb3 (4.8.0-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/rules: Remove hard-coded Python versions 2.4 and 2.5
+    to allow building with all future versions (closes: #555799)
+
+ -- Jonathan Wiltshire <debian@jwiltshire.org.uk>  Tue, 17 Nov 2009 22:20:48 +0000
+
+python-bsddb3 (4.8.0-2) unstable; urgency=low
+
+  * Use the installed python-sphinx. Closes: #549820.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 11 Oct 2009 21:18:09 +0200
+
+python-bsddb3 (4.8.0-1) unstable; urgency=low
+
+  * New upstream version, supporting Berkeley DB 4.8.
+  * Build-depend on the versioned libdbX.Y-dev package to avoid unintended
+    updates of databases.
+  * Upload to unstable. Closes: #501014.
+  * Intent to remove the module from the python standard library and let
+    the python package depend on it.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 26 Sep 2009 20:19:19 +0200
+
+python-bsddb3 (4.7.6-0ubuntu1) karmic; urgency=low
+
+  * New upstream version.
+  * Build the module for python3, not shipping anymore with bsddb3.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 15 Sep 2009 22:30:31 +0000
+
+python-bsddb3 (4.7.5-0ubuntu2) jaunty; urgency=low
+
+  * New upstream version.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 16 Feb 2009 23:52:53 +0000
+
+python-bsddb3 (4.7.3-0ubuntu1) intrepid; urgency=low
+
+  * New upstream version.
+  * Separate package; not included anymore in python3.0.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 24 Oct 2008 00:28:08 +0200
+
+python-bsddb3 (3.3.0-6ubuntu1) hoary; urgency=low
+
+  * Replace package built against python-2.2 with python-2.4
+
+ -- Chris Halls <chris.halls@credativ.co.uk>  Mon, 24 Jan 2005 14:52:54 +0000
+
+python-bsddb3 (3.3.0-6) unstable; urgency=low
+
+  * Orphaning this package.
+
+ -- Nathan Hawkins <utsl@debian.org>  Mon,  9 Aug 2004 18:55:35 -0500
+
+python-bsddb3 (3.3.0-5.3) unstable; urgency=low
+
+  * NMU.
+  * Rebuild against python 2.3 (closes: #204702).
+  * Use dh_python.
+  * Standards-Version is 3.6.0.
+  * Correct copyright file.
+  * bsddb3/dbshelve.py: remove interpreter line.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 14 Aug 2003 12:57:36 +0200
+
+python-bsddb3 (3.3.0-5.2) unstable; urgency=low
+
+  * Fix python dependency (closes: #185372).
+
+ -- Matthias Klose <doko@debian.org>  Thu, 10 Apr 2003 19:48:41 +0200
+
+python-bsddb3 (3.3.0-5.1) unstable; urgency=low
+
+  * Fix python dependency (closes: #168447).
+
+ -- Matthias Klose <doko@debian.org>  Tue, 25 Feb 2003 12:49:01 +0100
+
+python-bsddb3 (3.3.0-5) unstable; urgency=low
+
+  * Fixed build dependacies to include python2.1, python2.2 and python.
+    Closes: #165999.
+
+ -- Nathan Hawkins <utsl@debian.org>  Wed, 23 Oct 2002 09:45:11 -0400
+
+python-bsddb3 (3.3.0-4) unstable; urgency=low
+
+  * Fixed dbobj.DBEnv.set_flags. Closes: #160273.
+  * Made debian/rules run dh_strip, removes lintian error about _db.so.
+  * Moved documentation into python-bsddb3-doc. It was incorrectly being
+    installed into python-bsddb3.
+
+ -- Nathan Hawkins <utsl@debian.org>  Tue, 10 Sep 2002 11:41:51 -0400
+
+python-bsddb3 (3.3.0-3) unstable; urgency=low
+
+  * Now supporting both python 2.2 and 2.1. Split into three binary packages,
+    python-bsddb3 (dependacy package), python2.1-bsddb3 and python2.2-bsddb3.
+  * Removed .pyc files which were improperly being included in the .deb.
+
+ -- Nathan P. Hawkins III <utsl@quic.net>  Sat, 15 Jun 2002 20:40:04 -0400
+
+python-bsddb3 (3.3.0-2) unstable; urgency=low
+
+  * Fixed build-depends, added package preinst/prerm scripts and moved to
+    interpreters section. Closes: #126490.
+
+ -- Nathan Hawkins <utsl@hotrod.quic.net>  Wed, 26 Dec 2001 12:39:20 -0500
+
+python-bsddb3 (3.3.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Nathan P. Hawkins III <utsl@quic.net>  Tue, 27 Nov 2001 10:47:06 -0500
+
+Local variables:
+mode: debian-changelog
+End:

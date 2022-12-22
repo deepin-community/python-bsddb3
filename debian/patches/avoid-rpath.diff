@@ -1,0 +1,24 @@
+Index: b/setup2.py
+===================================================================
+--- a/setup2.py
++++ b/setup2.py
+@@ -505,7 +505,6 @@ pybsddb_doc/>`__ --
+                                depends = ['Modules/bsddb.h'],
+                                include_dirs = [ incdir ],
+                                library_dirs = [ libdir ],
+-                               runtime_library_dirs = [ libdir ],
+                                libraries = libname,
+                                extra_link_args = lflags_arg,
+                                )],
+Index: b/setup3.py
+===================================================================
+--- a/setup3.py
++++ b/setup3.py
+@@ -505,7 +505,6 @@ pybsddb_doc/>`__ --
+                                depends = ['Modules/bsddb.h'],
+                                include_dirs = [ incdir ],
+                                library_dirs = [ libdir ],
+-                               runtime_library_dirs = [ libdir ],
+                                libraries = libname,
+                                extra_link_args = lflags_arg,
+                                )],

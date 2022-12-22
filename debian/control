@@ -1,0 +1,40 @@
+Source: python-bsddb3
+Section: python
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper (>= 11),
+  dh-python,
+  libdb5.3-dev,
+  python3-all-dev (>= 3.2.3-7~),
+Build-Depends-Indep: python3-sphinx
+Standards-Version: 4.6.0
+Homepage: http://pypi.python.org/pypi/bsddb3/
+
+Package: python3-bsddb3
+Architecture: any
+Depends: ${shlibs:Depends}, ${python3:Depends}, ${misc:Depends}
+Provides: ${python3:Provides}
+Description: Python interface for Berkeley DB (Python 3.x)
+ This module provides a nearly complete wrapping of the Oracle/Sleepycat C API
+ for the Database Environment, Database, Cursor, Sequence and Transaction
+ objects, and each of these is exposed as a Python Type in the bsddb3.db
+ module.  The database objects can use various access methods: btree, hash,
+ recno and queue.  Complete support of Berkeley DB distributed transactions.
+ Complete support for Berkeley DB Replication Manager. Complete support for
+ Berkeley DB Base Replication. Support for RPC.
+
+Package: python-bsddb3-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Suggests: python3-bsddb3
+Description: Documentation for the python Berkeley DB interface module
+ This module provides a nearly complete wrapping of the Oracle/Sleepycat C API
+ for the Database Environment, Database, Cursor, Sequence and Transaction
+ objects, and each of these is exposed as a Python Type in the bsddb3.db
+ module.  The database objects can use various access methods: btree, hash,
+ recno and queue.  Complete support of Berkeley DB distributed transactions.
+ Complete support for Berkeley DB Replication Manager. Complete support for
+ Berkeley DB Base Replication. Support for RPC.
+ .
+ This package contains the documentation for python-bsddb3 and python3-bsddb.

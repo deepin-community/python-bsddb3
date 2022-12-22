@@ -1,0 +1,100 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+PY3VERS   := $(shell py3versions -vs)
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+p	= python-bsddb3
+d	= debian/$(p)
+p3	= python3-bsddb3
+d3	= debian/$(p3)
+
+build: build-stamp
+build-arch: build-stamp
+build-indep: build-stamp
+build-stamp: $(PY3VERS:%=build3-python%)
+	touch $@
+
+build3-python%:
+	BERKELEYDB_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH) \
+	BERKELEYDB_INCDIR=/usr/include \
+	python$* setup3.py build $(build_args)
+	touch $@
+
+build-stamp-doc:
+	: # removed in 6.2.9
+	: $(MAKE) -C docs html
+	touch $@
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp* build*-python* dbg-build*-python*
+	rm -rf build docs/build
+	rm -rf build docs/html
+	find -name '*.py[co]' | xargs -r rm -f
+	dh_clean
+
+install: build install-prereq $(PY3VERS:%=install3-python%)
+	find debian -name '*.py[co]' | xargs -r rm -f
+
+install-prereq:
+	dh_testdir
+	dh_testroot
+	dh_prep
+
+install3-python%:
+	BERKELEYDB_LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH) \
+	BERKELEYDB_INCDIR=/usr/include \
+	python$* setup3.py install \
+		--root=$(CURDIR)/$(d3) --install-layout=deb $(build_args)
+	rm -rf $(d3)/usr/lib/python$*/*-packages/bsddb3/tests
+	mkdir -p $(d3)/usr/include/python$*m
+	mv $(d3)/usr/include/python$*/* $(d3)/usr/include/python$*m/.
+	rm -rf $(d3)/usr/include/python$*
+
+# Build architecture-independent files here.
+binary-indep: build-stamp-doc
+	dh_testdir
+	dh_testroot
+	dh_installdocs -i README.txt TODO.txt
+	mkdir -p $(d)-doc/usr/share/doc/$(p)
+	cp -pr docs/*.rst $(d)-doc/usr/share/doc/$(p)/
+ifeq (0,1)
+	cp -pr docs/build/html $(d)-doc/usr/share/doc/$(p)/
+	dh_sphinxdoc -p$(p)-doc
+	ln -sf ../$(p)/html $(d)-doc/usr/share/doc/$(p)-doc
+	dh_link -p$(p)-doc \
+		/usr/share/javascript/jquery/jquery.js \
+		/usr/share/doc/$(p)/html/_static/jquery.js
+endif
+	dh_installchangelogs -i ChangeLog
+	dh_compress -i -X.js -X.json -X.inv
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installdocs -a README.txt TODO.txt
+	dh_installchangelogs -a ChangeLog
+	dh_python3 -a
+	dh_link -a
+	dh_strip -p$(p3)
+	dh_compress -a
+	dh_fixperms -a
+	dh_installdeb -a
+	dh_shlibdeps -a
+	dh_gencontrol -a
+	dh_md5sums -a
+	dh_builddeb -a
+
+binary: binary-arch binary-indep
+.PHONY: build clean binary-indep binary-arch binary install
