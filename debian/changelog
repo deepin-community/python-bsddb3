@@ -1,3 +1,9 @@
+python-bsddb3 (6.2.9-2deepin1) unstable; urgency=medium
+
+  * No source change upload against python 3.12.
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Mon, 08 Jul 2024 09:54:30 +0200
+
 python-bsddb3 (6.2.9-2) unstable; urgency=medium
 
   * QA upload.
